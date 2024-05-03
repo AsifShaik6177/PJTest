@@ -49,7 +49,7 @@
               <li>
                 <h3 class="d-inline-block">$5</h3>
                 <span>/hr</span>
-                <p>each additional guest <br />up to 4 guests max</p>
+                <p>each  <br />up to 4 guests max</p>
               </li> -->
             </ul>
           </div>
@@ -136,14 +136,14 @@
           <h3 class="border-bottom">Booking Details</h3>
           <ul>
             <li>
-              <i class="fa-regular fa-building me-2"></i>{{eventDetails.eventName}} - {{eventDetails.sportName}}<span class="x-circle"></span>
+              <i class="fa-regular fa-building me-2"></i>SE League <span class="x-circle"></span>
             </li>
             <li><i class="feather icon-calendar me-2"></i>{{bookingDate.toDateString()}}</li>
-            <li><i class="feather icon-clock me-2"></i>{{myTime.getHours()}}:00 PM to {{zones.getHours()}}:00 PM</li>
+            <li><i class="feather icon-clock me-2"></i>{{myTime.getHours()}}:00 to {{zones.getHours()}}:00</li>
           </ul>
           <div class="d-grid btn-block">
             <button (click)="clickSubmit()" type="button" class="btn btn-primary">
-              Subtotal : ${{getTotalBill()}}
+              Subtotal : $10
             </button>
           </div>
         </aside>

@@ -9,6 +9,11 @@ const routes: Routes = [
         (m) => m.FeatureModuleModule
       ),
   },
+  {
+    path: '**',
+    redirectTo: 'https://localhost:4200',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

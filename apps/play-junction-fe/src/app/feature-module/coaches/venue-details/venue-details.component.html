@@ -68,7 +68,7 @@
               <a href="javascript:void(0);"><img class="img-fluid" alt="" src="assets/img/profiles/avatar-01.jpg"></a>
             </div>
             <div class="ms-2">
-              <p>Added By</p>
+              <p>Added By: John Doe</p>
               <h6 class="mb-0">{{eventDetails.postedBy?.name}}</h6>
             </div>
           </li>
@@ -76,8 +76,8 @@
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6">
         <div class="d-flex float-sm-end align-items-center">
-          <p class="d-inline-block me-2 mb-0">Starts From :</p>
-          <h3 class="primary-text mb-0 d-inline-block">${{eventDetails.venuePrice}}<span>/ hr</span></h3>
+          <p class="d-inline-block me-2 mb-0"></p>
+          <h3 class="primary-text mb-0 d-inline-block"><span>r</span></h3>
         </div>
       </div>
     </div>
@@ -97,8 +97,7 @@
             <li><a (click)="scrollContent('rules')">Rules</a></li>
             <li><a (click)="scrollContent('amenities')">Amenities</a></li>
             <li><a (click)="scrollContent('gallery')">Gallery</a></li>
-            <li><a (click)="scrollContent('reviews')">Reviews</a></li>
-            <li><a (click)="scrollContent('location')">Locations</a></li>
+         
           </ul>
         </div>
 
@@ -116,7 +115,7 @@
               aria-labelledby="panelsStayOpen-overview">
               <div class="accordion-body">
                 <div class="text" [ngClass]="{'show-more-height': isShowMore}">
-                    {{eventDetails.overview}}
+                    Test
                 </div>
                 <div (click)="toggleShowMore()" class="show-more d align-items-center primary-text"><i class="feather"
                     [ngClass]="{'icon-plus-circle': isShowMore, 'icon-minus-circle': !isShowMore}"></i>
@@ -132,15 +131,13 @@
                 Includes
               </button>
             </h4>
-            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-includes">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
               <div class="accordion-body">
-                <ul *ngIf="includes.length>0" class="clearfix">
-                  @for (slide of includes; track slide; let i = $index) {
-                  <li><i class="feather icon-check-square"></i>{{slide}}</li>
-                  }
-                </ul>
-              </div>
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                  Bats, Equipment Included
+                </div>
+               
             </div>
           </div>
           <div class="accordion-item mb-4" id="rules">
@@ -151,17 +148,13 @@
                 Rules
               </button>
             </h4>
-            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-rules">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
               <div class="accordion-body">
-                <ul>
-                  @for (slide of venueRules; track slide; let i = $index) {
-                  <li>
-                    <p><i class="feather icon-alert-octagon"></i>{{slide}}</p>
-                  </li>
-                  }
-                </ul>
-              </div>
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    Test
+                </div>
+                
             </div>
           </div>
           <div class="accordion-item mb-4" id="amenities">
@@ -172,15 +165,13 @@
                 Amenities
               </button>
             </h4>
-            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-amenities">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
               <div class="accordion-body">
-                <ul class="d-md-flex justify-content-between align-items-center">
-                  @for (slide of amneties; track slide; let i = $index) {
-                  <li><i class="fa fa-check-circle" aria-hidden="true"></i>{{slide}}</li>
-                  }
-                </ul>
-              </div>
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    Drinking Water, Parking, First Aid, Change Room, Shower
+                </div>  
+            </div>
             </div>
           </div>
           <div class="accordion-item mb-4" id="gallery">
@@ -224,45 +215,8 @@
           </div>
           <div class="accordion-item mb-4" id="reviews">
             <div class="accordion-header" id="panelsStayOpen-reviews">
-              <div class="accordion-button d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseSix" aria-controls="panelsStayOpen-collapseSix">
-                <span class="w-75 mb-0">
-                  Reviews
-                </span>
-                <a href="javascript:void(0);" class="btn btn-gradient pull-right">Write a review</a>
-              </div>
-            </div>
-            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-reviews">
-              <div class="accordion-body">
-                <!-- Review Box -->
-                @for (review of reviewList; track review; let i = $index) {
-                <div class="review-box d-md-flex">
-                  <div class="review-profile">
-                    <img src="assets/img/profiles/avatar-01.jpg" alt="">
-                  </div>
-                  <div class="review-info">
-                    <h6 class="mb-2 tittle">{{review.reviewer.name}} on {{review.reviewDate}}</h6>
-                    <div class="rating">
-                      @for (reviewStar of getReviewArray(review.review); track reviewStar; let i = $index) {
-                        <i class="fas fa-star filled"></i>
-                      }
-                      <span class="">{{review.review}}</span>
-                    </div>
-                    <h6>{{review.reviewTitle}}</h6>
-                    <p>{{review.reviewDetail}}</p>
-                    <ul class="review-gallery clearfix">
-                      @for (slide of review.gallery; track slide; let i = $index) {
-                      <li>
-                        <a href="javascript:void(0)" (click)="open1(i, albumsThree)" data-fancybox="gallery">
-                          <img class="img-fluid" alt="Image" [src]="slide">
-                        </a>
-                      </li>
-                      }
-                    </ul>
-                  </div>
-                </div>
-              }
+              
+            
                 <!-- /Review Box -->
 
                 <!-- Review Box -->
@@ -288,10 +242,7 @@
                   </div>
                 </div> -->
                 <!-- /Review Box -->
-                <div class="d-flex justify-content-center mt-1">
-                  <button type="button" class="btn btn-load-more d-flex justify-content-center align-items-center">Load
-                    More<i class="feather icon-plus-square"></i></button>
-                </div>
+               
               </div>
             </div>
           </div>
@@ -303,24 +254,14 @@
                 Location
               </button>
             </h4>
-            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-location">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-overview">
               <div class="accordion-body">
-                <div class="google-maps">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.8862835683544!2d-73.98256668525309!3d41.93829486962529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd0ee3286615b7%3A0x42bfa96cc2ce4381!2s132%20Kingston%20St%2C%20Kingston%2C%20NY%2012401%2C%20USA!5e0!3m2!1sen!2sin!4v1670922579281!5m2!1sen!2sin"
-                    height="445" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="text" [ngClass]="{'show-more-height': isShowMore}">
+                    712 S Elm St
                 </div>
-                <div class="dull-bg d-flex justify-content-start align-items-center mt-3">
-                  <div class="white-bg me-2">
-                    <i class="fas fa-location-arrow"></i>
-                  </div>
-                  <div class="">
-                    <h6>Our Venue Location</h6>
-                    <p>70 Bright St New York, USA</p>
-                  </div>
-                </div>
+                
+            </div>
               </div>
             </div>
           </div>
@@ -344,7 +285,7 @@
             <p class="d-inline-block"> &nbsp;- available Now</p>
             <ul class="d-sm-flex align-items-center justify-content-evenly">
               <li>
-                <h3 class="d-inline-block primary-text">$150</h3><span>/hr</span>
+                <h3 class="d-inline-block primary-text">$10</h3><span>/hr</span>
                 <p>per guest</p>
               </li>
             </ul>
@@ -355,7 +296,7 @@
             </div>
           </div>
           <div class="white-bg cage-owner-info">
-            <h4 class="border-bottom">Cage Owner Details</h4>
+            <h4 class="border-bottom">Venue Rating</h4>
             <div class="d-flex justify-content-start align-items-center">
               <div class="profile-pic">
                 <a href="javascript:void(0);"><img class="img-fluid" alt="" src="assets/img/profiles/avatar-05.jpg"></a>
@@ -373,11 +314,7 @@
                 </div>
               </div>
             </div>
-            <div class="d-grid btn-block text-center mt-3">
-              <a href="contact-us.html"
-                class="btn btn-secondary d-inline-flex justify-content-center align-items-center"><i
-                  class="feather icon-phone-call"></i>Call Owner</a>
-            </div>
+           
           </div>
           <!-- <div class="white-bg listing-owner">
             <h4 class="border-bottom">Listing By Owner</h4>

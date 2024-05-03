@@ -6,7 +6,7 @@
             "transactionFor": "Kevin Anderson",
             "date": "Mon, Jul 11",
             "time" : "04:00 PM - 06:00 PM",
-            "payment": "$150",
+            "payment": "$10",
             "status": "Paid",
             "img": "assets/img/profiles/avatar-01.jpg"
         },
@@ -24,7 +24,7 @@
             "transactionFor": "Wing Sports Academy",
             "date": "Mon, Jul 11",
             "time" : "05:00 PM - 08:00 PM",
-            "payment": "$150",
+            "payment": "$10",
             "status": "Failed",
             "img": "assets/img/profiles/avatar-03.jpg"
         },
